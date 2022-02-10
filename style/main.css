@@ -1,0 +1,163 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+h1 {
+	font-size: 3.2em;
+}
+
+h2 {
+	font-size: 2.4em;
+	margin-bottom: 8px;
+}
+
+h3 {
+	font-size: 1.8em;
+}
+
+label,
+p {
+	font-size: 1.6em;
+}
+
+input {
+	box-sizing: border-box;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	justify-content: center;
+	margin: 20px;
+}
+
+header {
+	text-align: center;
+	padding: 20px 0;
+	background-color: #e2e2e2;
+	color: #2e2e2e;
+}
+
+input {
+	font-size: 1.6em;
+	padding: 8px;
+	margin-top: 4px;
+	border-radius: 4px;
+}
+
+h2,
+h3,
+label,
+input {
+	color: #2e2e2e;
+}
+
+.new-book,
+.search-book,
+#done-reading,
+#undone-reading {
+	padding: 12px;
+	border: 1px solid #c2c2c2;
+	width: 40%;
+	border-radius: 4px;
+}
+
+#undone-reading {
+	border: 2px solid #cf4a39;
+}
+
+#done-reading {
+	border: 2px solid #21ac56;
+}
+
+button {
+	font-size: 1.6em;
+	cursor: pointer;
+}
+
+/* NEW BOOK SECTION */
+
+.input,
+.input_check {
+	margin: 12px 0;
+}
+
+.input input {
+	display: block;
+	width: 100%;
+}
+
+.input_check label {
+	margin-right: 2px;
+}
+
+.new-book button {
+	width: 100%;
+	border: none;
+	padding: 16px;
+	border-radius: 4px;
+	background-color: #cf4a39;
+	color: white;
+}
+
+.section-1,
+.section-2 {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 12px;
+}
+
+/* SEARCH BOOK SECTION */
+#search {
+	display: flex;
+	gap: 10px;
+	align-content: flex-start;
+}
+
+#search input {
+	flex-grow: 3;
+	margin-top: 0;
+}
+
+#search button {
+	flex-grow: 1;
+}
+
+/* SECTION DONE READING & UNDONE READING */
+.book {
+	border: 1px solid #c2c2c2;
+	border-radius: 4px;
+	padding: 12px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 8px;
+	margin-bottom: 12px;
+}
+
+.book .detail {
+	grid-column: span 3;
+}
+
+.book .detail > * {
+	margin: 4px;
+}
+
+.book .action {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	gap: 8px;
+}
+
+.book .action button {
+	flex-grow: 1;
+	font-size: 1.4em;
+}
