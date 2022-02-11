@@ -1,12 +1,12 @@
 const STORAGE_KEY = "BOOKSHELF";
 let books = [];
 
-function createBookObject(judul, penulis, tahun, isCompleted) {
+function createBookObject(title, author, year, isCompleted) {
 	return {
 		id: +new Date(),
-		judul,
-		penulis,
-		tahun,
+		title,
+		author,
+		year,
 		isCompleted
 	}
 }
@@ -18,16 +18,15 @@ function saveData() {
 
 function updateDataToStorage() {
 	if (typeof(Storage) === undefined) {
-		alert("BROWSER TIDAK MENDUKUNG LOCAL STORAGE!");
+		alert("Browser Anda tidak mendukung local storage.");
 		return false;
 	}
-
+	
 	saveData();
 }
 
 function loadDataFromStorage() {
 	const serializedData = localStorage.getItem(STORAGE_KEY);
-
 	let data = JSON.parse(serializedData);
 
 	if (data !== null) {
@@ -40,8 +39,8 @@ function refreshDataFromBooks() {
 	let listDoneRead = document.getElementById("done-reading");
 	
 	for (book of books) {
-		const newBook = makeBookElement(book.judul, book.penulis, book.tahun ,book.isCompleted);
-		newBook["ItemId"] = book.id;
+		const newBook = makeBookElement(book.title, book.author, book.year, book.isCompleted);
+		newBook[BOOK_ITEM_ID] = book.id;
 
 		if (book.isCompleted) {
 			listDoneRead.append(newBook);
@@ -49,4 +48,27 @@ function refreshDataFromBooks() {
 			listUndoneRead.append(newBook);
 		}
 	}
+}
+
+function findBookIndex(bookId) {
+	let index = 0;
+	for (book of books) {
+		if (book.id === bookId) {
+			return index;
+		}
+
+		index++;
+	}
+
+	return -1;
+}
+
+function findBook(bookId) {
+	for (book of books) {
+		if (book.id === bookId) {
+			return book;
+		}
+	}
+
+	return null;
 }

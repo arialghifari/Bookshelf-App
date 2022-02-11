@@ -83,6 +83,10 @@ button {
 	cursor: pointer;
 }
 
+header {
+	cursor: pointer;
+}
+
 /* NEW BOOK SECTION */
 
 .input,
@@ -116,6 +120,7 @@ button {
 }
 
 /* SEARCH BOOK SECTION */
+
 #search {
 	display: flex;
 	gap: 10px;
@@ -132,6 +137,7 @@ button {
 }
 
 /* SECTION DONE READING & UNDONE READING */
+
 .book {
 	border: 1px solid #c2c2c2;
 	border-radius: 4px;
@@ -160,4 +166,27 @@ button {
 .book .action button {
 	flex-grow: 1;
 	font-size: 1.4em;
+}
+
+.book button {
+	border: none;
+	color: #fff;
+}
+
+#btn-delete {
+	background-color: #fa6754;
+}
+
+#btn-delete:hover {
+	background-color: #eb5b48;
+}
+
+#btn-unread,
+#btn-read {
+	background-color: #5193f7;
+}
+
+#btn-unread:hover,
+#btn-read:hover {
+	background-color: #4484e6;
 }
