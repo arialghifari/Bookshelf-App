@@ -34,20 +34,26 @@ function loadDataFromStorage() {
 	}
 }
 
-function refreshDataFromBooks() {
-	let listUndoneRead = document.getElementById("undone-reading");
-	let listDoneRead = document.getElementById("done-reading");
+function refreshDataFromBooks(searchTerm) {
+	let listDoneReading = document.getElementById("done-reading");
+	let listUndoneReading = document.getElementById("undone-reading");
+	let list = document.querySelectorAll(".book");
+	
+	for (i = 0; i < list.length; i++) {
+		list[i].remove();
+	}
 	
 	for (book of books) {
 		const newBook = makeBookElement(book.title, book.author, book.year, book.isCompleted);
 		newBook[BOOK_ITEM_ID] = book.id;
 
 		if (book.isCompleted) {
-			listDoneRead.append(newBook);
+			listDoneReading.append(newBook);
 		} else {
-			listUndoneRead.append(newBook);
+			listUndoneReading.append(newBook);
 		}
 	}
+	
 }
 
 function findBookIndex(bookId) {
@@ -71,4 +77,27 @@ function findBook(bookId) {
 	}
 
 	return null;
+}
+
+function searchBook(searchTerm) {
+	let listDoneReading = document.getElementById("done-reading");
+	let listUndoneReading = document.getElementById("undone-reading");
+	let list = document.querySelectorAll(".book");
+	
+	for (i = 0; i < list.length; i++) {
+		list[i].remove();
+	}
+
+	for (book of books) {
+		if (book.title.toLowerCase().indexOf(searchTerm.toLowerCase()) != -1) {
+			const bookFound = makeBookElement(book.title, book.author, book.year, book.isCompleted);
+			bookFound[BOOK_ITEM_ID] = book.id;
+			
+			if (book.isCompleted) {
+				listDoneReading.append(bookFound);
+			} else {
+				listUndoneReading.append(bookFound);
+			}
+		}
+	}
 }

@@ -26,7 +26,8 @@ p {
 	font-size: 1.6em;
 }
 
-input {
+input,
+div {
 	box-sizing: border-box;
 }
 
@@ -51,6 +52,12 @@ input {
 	padding: 8px;
 	margin-top: 4px;
 	border-radius: 4px;
+	border: 1px solid #c2c2c2;
+	outline: none;
+}
+
+input:focus {
+	border: 1px solid #5c5c5c;
 }
 
 h2,
@@ -71,11 +78,11 @@ input {
 }
 
 #undone-reading {
-	border: 2px solid #cf4a39;
+	border: 3px solid #4484e6;
 }
 
 #done-reading {
-	border: 2px solid #21ac56;
+	border: 3px solid #21ac56;
 }
 
 button {
@@ -108,7 +115,7 @@ header {
 	border: none;
 	padding: 16px;
 	border-radius: 4px;
-	background-color: #cf4a39;
+	background-color: #4484e6;
 	color: white;
 }
 
@@ -123,17 +130,11 @@ header {
 
 #search {
 	display: flex;
-	gap: 10px;
-	align-content: flex-start;
 }
 
 #search input {
-	flex-grow: 3;
-	margin-top: 0;
-}
-
-#search button {
 	flex-grow: 1;
+	margin-top: 0;
 }
 
 /* SECTION DONE READING & UNDONE READING */
@@ -174,19 +175,26 @@ header {
 }
 
 #btn-delete {
-	background-color: #fa6754;
+	background-color: #e7e7e7;
+	color: #2e2e2e;
 }
 
 #btn-delete:hover {
-	background-color: #eb5b48;
+	background-color: #dddddd;
 }
 
-#btn-unread,
-#btn-read {
-	background-color: #5193f7;
-}
-
-#btn-unread:hover,
-#btn-read:hover {
+#btn-unread {
 	background-color: #4484e6;
+}
+
+#btn-unread:hover {
+	background-color: #3f7fdf;
+}
+
+#btn-read {
+	background-color: #21ac56;
+}
+
+#btn-read:hover {
+	background-color: #1ca550;
 }

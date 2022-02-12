@@ -8,7 +8,7 @@ const btnSubmit = document.getElementById("submit");
 const submitForm = document.getElementById("add");
 const btnReads = document.querySelectorAll("#btn-read");
 const btnUnreads = document.querySelectorAll("#btn-unread");
-const header = document.getElementsByTagName("header")[0];
+const header = document.querySelector("header");
 
 document.addEventListener("DOMContentLoaded", function () {
 	header.addEventListener("click", function() {
@@ -31,7 +31,7 @@ isCompleted.addEventListener("click", function () {
 		btnSubmit.style.backgroundColor = "#21ac56";
 	} else {
 		btnSubmitText.innerText = "Belum Selesai Dibaca";
-		btnSubmit.style.backgroundColor = "#cf4a39";
+		btnSubmit.style.backgroundColor = "#4484e6";
 	}
 });
 
@@ -64,7 +64,9 @@ function addBook(isCompleted) {
 		listUndoneReading.append(book);
 	}
 
+	clearInput();
 	updateDataToStorage();
+	refreshDataFromBooks();
 }
 
 function makeBookElement(judulInput, penulisInput, tahunInput, isCompleted) {
@@ -120,26 +122,30 @@ function buttonActivity() {
 				books.splice(bookPosition, 1);
 				bookElement.remove();
 	
+				clearInput();
 				updateDataToStorage();
+				refreshDataFromBooks();
 			}
 		} else if (btnReadClicked) {
 			const bookElement = e.target.parentElement.parentElement;
 			const bookTitle = e.target.parentElement.parentElement.querySelector("#judul").innerText;
 			const bookAuthor = e.target.parentElement.parentElement.querySelector("#penulis").innerText;
 			const bookYear = e.target.parentElement.parentElement.querySelector("#tahun").innerText;
-
+			
 			const newBook = makeBookElement(bookTitle, bookAuthor, bookYear, true);
 			const book = findBook(bookElement[BOOK_ITEM_ID]);
 			
 			book.isCompleted = true;
 			newBook[BOOK_ITEM_ID] = book.id;
-
+			
 			const listDoneReading = document.getElementById(READ_LIST_BOOK_ID);
 			listDoneReading.append(newBook);
-
+			
 			bookElement.remove();
-
+			
+			clearInput();
 			updateDataToStorage();
+			refreshDataFromBooks();
 		} else if (btnUnreadClicked) {
 			const bookElement = e.target.parentElement.parentElement;
 			const bookTitle = e.target.parentElement.parentElement.querySelector("#judul").innerText;
@@ -148,17 +154,34 @@ function buttonActivity() {
 
 			const newBook = makeBookElement(bookTitle, bookAuthor, bookYear, false);
 			const book = findBook(bookElement[BOOK_ITEM_ID]);
-			
+
 			book.isCompleted = false;
 			newBook[BOOK_ITEM_ID] = book.id;
-
+			
 			const listUndoneReading = document.getElementById(UNREAD_LIST_BOOK_ID);
 			listUndoneReading.append(newBook);
-
+			
 			bookElement.remove();
-
+			
+			clearInput();
 			updateDataToStorage();
+			refreshDataFromBooks();
 		}
-
 	});
+
+	const searchInput = document.getElementById("search-input");
+	searchInput.addEventListener("keyup", function() {
+		if (searchInput.value) {
+			searchBook(searchInput.value);
+		} else {
+			refreshDataFromBooks();
+		}
+	});
+}
+
+function clearInput() {
+	document.getElementById("judul-input").value = "";
+	document.getElementById("penulis-input").value = "";
+	document.getElementById("tahun-input").value = "";
+	document.getElementById("search-input").value = "";
 }
