@@ -81,6 +81,7 @@ input {
 #done-reading,
 #undone-reading {
 	width: 745px;
+	height: fit-content;
 }
 
 #undone-reading {
