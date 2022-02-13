@@ -14,7 +14,7 @@ h1 {
 
 h2 {
 	font-size: 2.4em;
-	margin-bottom: 8px;
+	margin-bottom: 16px;
 }
 
 h3 {
@@ -41,9 +41,10 @@ main {
 }
 
 header {
+	cursor: pointer;
 	text-align: center;
-	padding: 20px 0;
-	background-color: #e2e2e2;
+	padding: 30px 0;
+	background-color: #e6e6e6;
 	color: #2e2e2e;
 }
 
@@ -52,12 +53,12 @@ input {
 	padding: 8px;
 	margin-top: 4px;
 	border-radius: 4px;
-	border: 1px solid #c2c2c2;
+	border: 1px solid #757575;
 	outline: none;
 }
 
 input:focus {
-	border: 1px solid #5c5c5c;
+	border: 1px solid #000000;
 }
 
 h2,
@@ -71,10 +72,15 @@ input {
 .search-book,
 #done-reading,
 #undone-reading {
-	padding: 12px;
+	padding: 20px;
 	border: 1px solid #c2c2c2;
 	width: 40%;
 	border-radius: 4px;
+}
+
+#done-reading,
+#undone-reading {
+	width: 745px;
 }
 
 #undone-reading {
@@ -88,17 +94,13 @@ input {
 button {
 	font-size: 1.6em;
 	cursor: pointer;
+	border-radius: 4px;
 }
 
-header {
-	cursor: pointer;
-}
+/* SECTION ADD NEW BOOK */
 
-/* NEW BOOK SECTION */
-
-.input,
-.input_check {
-	margin: 12px 0;
+.input {
+	margin-bottom: 16px;
 }
 
 .input input {
@@ -106,15 +108,10 @@ header {
 	width: 100%;
 }
 
-.input_check label {
-	margin-right: 2px;
-}
-
 .new-book button {
 	width: 100%;
 	border: none;
 	padding: 16px;
-	border-radius: 4px;
 	background-color: #4484e6;
 	color: white;
 }
@@ -124,6 +121,11 @@ header {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	column-gap: 12px;
+}
+
+input[type="checkbox"] {
+	width: 37px;
+	height: 37px;
 }
 
 /* SEARCH BOOK SECTION */
@@ -138,6 +140,12 @@ header {
 }
 
 /* SECTION DONE READING & UNDONE READING */
+
+.book-section {
+	display: flex;
+	gap: 16px;
+	justify-content: center;
+}
 
 .book {
 	border: 1px solid #c2c2c2;
@@ -165,13 +173,18 @@ header {
 }
 
 .book .action button {
-	flex-grow: 1;
 	font-size: 1.4em;
 }
 
 .book button {
 	border: none;
 	color: #fff;
+}
+
+#btn-delete,
+#btn-read,
+#btn-unread {
+	height: 34px;
 }
 
 #btn-delete {

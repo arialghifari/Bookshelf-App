@@ -92,7 +92,7 @@ function makeBookElement(judulInput, penulisInput, tahunInput, isCompleted) {
 				<p>Tahun: <span id="tahun">${tahunInput}</span></p>
 			</div>
 			<div class="action">
-				<button id="btn-read">Selesai Dibaca</button>
+				<button id="btn-read">Sudah Dibaca</button>
 				<button id="btn-delete">Hapus</button>
 			</div>
 		`;
@@ -113,7 +113,7 @@ function buttonActivity() {
 		if (btnDeleteClicked) {
 			const bookTitle = e.target.parentElement.parentElement.querySelector("#judul").innerText;
 
-			confirmDelete = confirm(`Yakin ingin menghapus buku "${bookTitle}"?`);
+			confirmDelete = confirm(`Hapus buku "${bookTitle}"?`);
 			
 			if (confirmDelete) {
 				const bookElement = e.target.parentElement.parentElement;
