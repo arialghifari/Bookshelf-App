@@ -2,4 +2,4 @@
 
 Bookshelf App that made with Javascript and saved in LocalStorage.
 
-Live: [Bookshelf](https://ari-bookshelf-app.netlify.app/)
+Live Demo: [Bookshelf App](https://ari-bookshelf-app.netlify.app/)
