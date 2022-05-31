@@ -1,74 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style/main.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-	<title>Ari Bookshelf App</title>
-</head>
-<body>
-	<header>
-		<h1>ARI BOOKSHELF APP</h1>
-	</header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Ari Bookshelf App</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">ARI BOOKSHELF APP</h1>
+    </header>
 
-	<main>
-		<div class="new-book">
-			<form id="add" action="#">
-				<h2>TAMBAH BUKU BARU</h2>
+    <main>
+      <section class="new-book">
+        <form id="add" action="#">
+          <h3 class="margin">TAMBAH BUKU BARU</h3>
 
-				<div class="section-1">
-					<div class="input">
-						<label for="judul-input">Judul</label>
-						<input id="judul-input" type="text" required>
-					</div>
-	
-					<div class="input">
-						<label for="penulis-input">Penulis</label>
-						<input id="penulis-input" type="text" required>
-					</div>
-				</div>
+          <div class="section-1">
+            <div class="input">
+              <label for="judul-input">Judul</label>
+              <input id="judul-input" type="text" required />
+            </div>
 
-				<div class="section-2">
-					<div class="input">
-						<label for="tahun-input">Tahun</label>
-						<input id="tahun-input" type="number" required>
-					</div>
-	
-					<div class="input">
-						<label for="isCompleted">Selesai Dibaca</label>
-						<input id="isCompleted" type="checkbox">
-					</div>
-				</div>
+            <div class="input">
+              <label for="penulis-input">Penulis</label>
+              <input id="penulis-input" type="text" required />
+            </div>
+          </div>
 
-				<button id="submit" type="submit">Masukkan Buku Ke Rak <b id="submit__status">Belum Selesai Dibaca</b></button>
-			</form>
-		</div>
+          <div class="section-2">
+            <div class="input">
+              <label for="tahun-input">Tahun</label>
+              <input id="tahun-input" type="number" required />
+            </div>
 
-		<div class="search-book">
-			<h2>CARI BUKU</h2>
+            <div class="input">
+              <label for="isCompleted">Selesai Dibaca</label>
+              <input id="isCompleted" type="checkbox" />
+            </div>
+          </div>
 
-			<form id="search" action="#">
-				<input id="search-input" type="text" placeholder="Masukkan Judul Buku">
-			</form>
-		</div>
+          <button id="submit" type="submit">
+            Masukkan Buku Ke Rak <b id="submit__status">Belum Selesai Dibaca</b>
+          </button>
+        </form>
+      </section>
 
-		<div class="book-section">
-			<div id="undone-reading">
-				<h2>BELUM SELESAI DIBACA</h2>
-			</div>
+      <section class="search-book">
+        <h3 class="margin">CARI BUKU</h3>
 
-			<div id="done-reading">
-				<h2>SUDAH SELESAI DIBACA</h2>
-			</div>
-		</div>
-	</main>
+        <form id="search" action="#">
+          <input
+            id="search-input"
+            type="text"
+            placeholder="Masukkan judul.."
+          />
+        </form>
+      </section>
 
+      <section class="book-section">
+        <div id="undone-reading">
+          <h3 class="margin">BELUM SELESAI DIBACA</h3>
+        </div>
 
-<script src="js/data.js"></script>
-<script src="js/script.js"></script>
-</body>
+        <div id="done-reading">
+          <h3 class="margin">SUDAH SELESAI DIBACA</h3>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
 </html>
