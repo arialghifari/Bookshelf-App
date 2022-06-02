@@ -50,33 +50,27 @@ function isChecked() {
 submitForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  if (btnSubmit.classList.length > 0) {
-    isCompleted.checked
-      ? addBook(true, btnSubmit.classList[0])
-      : addBook(false, btnSubmit.classList[0]);
-  } else {
-    isCompleted.checked ? addBook(true) : addBook(false);
-  }
+  isCompleted.checked ? addBook(true) : addBook(false);
 });
 
 function addBook(isCompleted) {
   if (bookEl) {
+    const bookPosition = findBookIndex(bookEl[BOOK_ITEM_ID]);
     const btnCancel = document.getElementById("cancel");
-    const isChecked = document.getElementById("isCompleted");
 
     btnCancel.classList.add("hidden");
-    isChecked.checked = false;
     newBookTitle.innerHTML = "TAMBAH BUKU";
-
-    btnSubmit.innerHTML =
-      'Tambah Buku Ke Rak <b id="submit__status">Belum Selesai Dibaca</b>';
-    btnSubmit.style.color = "#e66a44";
-
-    const bookPosition = findBookIndex(bookEl[BOOK_ITEM_ID]);
 
     books.splice(bookPosition, 1);
     bookEl.remove();
+    bookEl = "";
   }
+
+  btnSubmit.innerHTML =
+    'Tambah Buku Ke Rak <b id="submit__status">Belum Selesai Dibaca</b>';
+  btnSubmit.style.color = "#e66a44";
+  const isChecked = document.getElementById("isCompleted");
+  isChecked.checked = false;
 
   const book = makeBookElement(
     judulInput.value,
@@ -175,6 +169,15 @@ function deleteBook(bookElement) {
       Swal.fire("Terhapus!", "Buku sudah berhasil dihapus", "success");
 
       const bookPosition = findBookIndex(bookElement[BOOK_ITEM_ID]);
+      const btnCancel = document.getElementById("cancel");
+      const isChecked = document.getElementById("isCompleted");
+      btnSubmit.innerHTML =
+        'Tambah Buku Ke Rak <b id="submit__status">Belum Selesai Dibaca</b>';
+      btnSubmit.style.color = "#e66a44";
+      isChecked.checked = false;
+      btnCancel.classList.add("hidden");
+      newBookTitle.innerHTML = "TAMBAH BUKU";
+      bookEl = "";
 
       books.splice(bookPosition, 1);
       bookElement.remove();
