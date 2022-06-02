@@ -11,17 +11,18 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <title>Ari Bookshelf App</title>
+    <link rel="shortcut icon" href="./assets/book.svg" type="image/x-icon" />
+    <title>Ari Bookshelf</title>
   </head>
   <body>
     <header>
-      <h1 class="title">ARI BOOKSHELF APP</h1>
+      <h1 class="title">"ARI BOOKSHELF"</h1>
     </header>
 
     <main>
       <section class="new-book">
         <form id="add" action="#">
-          <h3 class="margin">TAMBAH BUKU BARU</h3>
+          <h3 class="margin" id="new-book__title">TAMBAH BUKU</h3>
 
           <div class="section-1">
             <div class="input">
@@ -48,8 +49,9 @@
           </div>
 
           <button id="submit" type="submit">
-            Masukkan Buku Ke Rak <b id="submit__status">Belum Selesai Dibaca</b>
+            Tambah Buku Ke Rak <b id="submit__status">Belum Selesai Dibaca</b>
           </button>
+          <button id="cancel" class="hidden">Batal</button>
         </form>
       </section>
 
@@ -57,11 +59,7 @@
         <h3 class="margin">CARI BUKU</h3>
 
         <form id="search" action="#">
-          <input
-            id="search-input"
-            type="text"
-            placeholder="Masukkan judul.."
-          />
+          <input id="search-input" type="text" placeholder="Masukkan judul.." />
         </form>
       </section>
 
