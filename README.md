@@ -1,5 +1,5 @@
 # Bookshelf-App
 
-Bookshelf App that made with Javascript and saved in LocalStorage.
+Simple Bookshelf App that made using vanilla js and saved in localStorage.
 
-Live Demo: [Bookshelf App](https://ari-bookshelf-app.netlify.app/)
+Live: [Bookshelf App](https://ari-bookshelf-app.netlify.app/)
